@@ -5,6 +5,7 @@ import './index.css'
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
+import { SupabaseSessionProvider } from './supabase'
 
 const hashHistory = createHashHistory()
 
@@ -24,7 +25,9 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <SupabaseSessionProvider>
+        <RouterProvider router={router} />
+      </SupabaseSessionProvider>
     </StrictMode>,
   )
 }

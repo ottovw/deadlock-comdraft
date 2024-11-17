@@ -8,7 +8,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Calendar } from '@/components/ui/calendar'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { supabase } from '../../supabase.client'
+import { supabaseClient } from '../../supabase'
+import { useNavigate } from '@tanstack/react-router'
 
 type FormData = {
   name: string
@@ -22,6 +23,8 @@ import { customAlphabet } from 'nanoid'
 const nanoid = customAlphabet('1234567890abcdef', 10)
 
 export function CreateDraftForm() {
+  const navigate = useNavigate()
+
   const { control, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     defaultValues: {
       name: '',
@@ -32,19 +35,19 @@ export function CreateDraftForm() {
     },
   })
 
-  const onSubmit = (data: FormData) => {
-    console.log(data)
-    supabase.from('drafts').insert([
+  const onSubmit = async (data: FormData) => {
+    const id = nanoid()
+    const result = await supabaseClient.from('drafts').insert([
       {
-        id: nanoid(),
+        id,
         name: data.name,
         description: data.description,
         // date: data.date,
         // time: data.time,
         // timezone: data.timezone,
       }
-    ]).then(console.log)
-    // Here you would typically send the data to your backend
+    ])
+    navigate({ to: `/drafts/${id}` });
     reset()
   }
 
