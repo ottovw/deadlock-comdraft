@@ -1,12 +1,12 @@
-import { getHeroData, Hero } from "./hero-data"
+import { useHeroData, Hero } from "./hero-data"
 
 
 export const HeroSelection = ({ }) => {
-    const heroes = getHeroData()
+    const heroes = useHeroData(false)
     return (
         <div>
             Heroes
-            <ul className="flex flex-row flex-wrap gap-5">
+            <ul className="flex flex-row flex-wrap gap-1    ">
                 {heroes.map(hero => (
                     <li key={hero.id}>
                         <HeroDisplay hero={hero} />
@@ -19,7 +19,7 @@ export const HeroSelection = ({ }) => {
 
 export const HeroDisplay = ({ hero }: { hero: Hero }) => {
     return (
-        <div className="border-1">
+        <div className="border-2 border-darkBg hover:border-red-300">
             <img src={hero.imageUrl} alt={hero.name} className="block w-[110px] h-[150px]" />
             {hero.name}
         </div>

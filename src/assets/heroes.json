@@ -126,13 +126,6 @@
     "experimental": false
   },
   {
-    "id": "hero_kali",
-    "name": "Kali",
-    "imageUrl": "/assets/heroes/hero_kali.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/kali_card_psd.png",
-    "experimental": false
-  },
-  {
     "id": "hero_warden",
     "name": "Warden",
     "imageUrl": "/assets/heroes/hero_warden.png",
@@ -161,38 +154,10 @@
     "experimental": false
   },
   {
-    "id": "hero_gunslinger",
-    "name": "Gunslinger",
-    "imageUrl": "/assets/heroes/hero_gunslinger.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/gunslinger_sm_psd.png",
-    "experimental": true
-  },
-  {
-    "id": "hero_yakuza",
-    "name": "The Boss",
-    "imageUrl": "/assets/heroes/hero_yakuza.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/yakuza_sm_psd.png",
-    "experimental": true
-  },
-  {
-    "id": "hero_tokamak",
-    "name": "Tokamak",
-    "imageUrl": "/assets/heroes/hero_tokamak.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/hud/hero_portraits/tokamak_hud_psd.png",
-    "experimental": true
-  },
-  {
     "id": "hero_wrecker",
     "name": "Wrecker",
     "imageUrl": "/assets/heroes/hero_wrecker.png",
     "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/wrecker_card_psd.png",
-    "experimental": true
-  },
-  {
-    "id": "hero_rutger",
-    "name": "Rutger",
-    "imageUrl": "/assets/heroes/hero_rutger.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/rutger_card_psd.png",
     "experimental": true
   },
   {
@@ -201,13 +166,6 @@
     "imageUrl": "/assets/heroes/hero_synth.png",
     "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/synth_card_psd.png",
     "experimental": false
-  },
-  {
-    "id": "hero_thumper",
-    "name": "Thumper",
-    "imageUrl": "/assets/heroes/hero_thumper.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/thumper_sm_psd.png",
-    "experimental": true
   },
   {
     "id": "hero_mirage",
@@ -224,36 +182,10 @@
     "experimental": true
   },
   {
-    "id": "hero_cadence",
-    "name": "Cadence",
-    "imageUrl": "/assets/heroes/hero_cadence.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/cadence_sm_psd.png",
-    "experimental": true
-  },
-  {
-    "id": "hero_bomber",
-    "name": "Bomber",
-    "imageUrl": "/assets/heroes/undefined",
-    "experimental": true
-  },
-  {
-    "id": "hero_shieldguy",
-    "name": "Shield Guy",
-    "imageUrl": "/assets/heroes/undefined",
-    "experimental": true
-  },
-  {
     "id": "hero_viper",
     "name": "Viper",
     "imageUrl": "/assets/heroes/hero_viper.png",
     "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/kali_card_psd.png",
-    "experimental": true
-  },
-  {
-    "id": "hero_vandal",
-    "name": "Vandal",
-    "imageUrl": "/assets/heroes/hero_vandal.png",
-    "_sourceImageUrl": "https://assets.deadlock-api.com/images/heroes/vandal_card_psd.png",
     "experimental": true
   },
   {

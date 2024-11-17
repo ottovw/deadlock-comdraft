@@ -24,16 +24,23 @@ async function fetchHeroes() {
         console.log("Data fetched successfully.")
 
         // Extract relevant data
-        const simplifiedData = heroes.map((hero: any) => ({
-            id: hero.class_name,
-            name: hero.name,
-            imageUrl: `/assets/heroes/${getFileName(
-                hero.class_name,
-                hero.images.icon_hero_card
-            )}`,
-            _sourceImageUrl: hero.images.icon_hero_card,
-            experimental: hero.in_development,
-        }))
+        const simplifiedData = heroes.flatMap((hero: any) => {
+            if (hero.disabled) {
+                return []
+            }
+            return [
+                {
+                    id: hero.class_name,
+                    name: hero.name,
+                    imageUrl: `/assets/heroes/${getFileName(
+                        hero.class_name,
+                        hero.images.icon_hero_card
+                    )}`,
+                    _sourceImageUrl: hero.images.icon_hero_card,
+                    experimental: hero.in_development,
+                },
+            ]
+        })
 
         // Save data to JSON
         await saveDataAsJson(simplifiedData)
