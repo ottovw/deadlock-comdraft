@@ -2,11 +2,11 @@ import './index.css'
 import { useState, useEffect } from 'react'
 import { createClient, Session } from '@supabase/supabase-js'
 
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLIC_API_KEY)
+export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLIC_API_KEY)
 
 const redirectUrl = window.location.origin + import.meta.env.BASE_URL;
 
-export default function App() {
+export default function SupabaseLogin() {
 
   console.log(import.meta.env)
 
