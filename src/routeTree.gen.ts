@@ -19,16 +19,9 @@ import { Route as DraftsDraftIdPlayersImport } from './routes/drafts/$draftId/pl
 
 // Create Virtual Routes
 
-const FooLazyImport = createFileRoute('/foo')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
-
-const FooLazyRoute = FooLazyImport.update({
-  id: '/foo',
-  path: '/foo',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/foo.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
@@ -65,13 +58,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/foo': {
-      id: '/foo'
-      path: '/foo'
-      fullPath: '/foo'
-      preLoaderRoute: typeof FooLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/drafts/new': {
       id: '/drafts/new'
       path: '/drafts/new'
@@ -100,7 +86,6 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/foo': typeof FooLazyRoute
   '/drafts/new': typeof DraftsNewRoute
   '/drafts/$draftId/players': typeof DraftsDraftIdPlayersRoute
   '/drafts/$draftId': typeof DraftsDraftIdIndexRoute
@@ -108,7 +93,6 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/foo': typeof FooLazyRoute
   '/drafts/new': typeof DraftsNewRoute
   '/drafts/$draftId/players': typeof DraftsDraftIdPlayersRoute
   '/drafts/$draftId': typeof DraftsDraftIdIndexRoute
@@ -117,7 +101,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/foo': typeof FooLazyRoute
   '/drafts/new': typeof DraftsNewRoute
   '/drafts/$draftId/players': typeof DraftsDraftIdPlayersRoute
   '/drafts/$draftId/': typeof DraftsDraftIdIndexRoute
@@ -127,21 +110,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/foo'
     | '/drafts/new'
     | '/drafts/$draftId/players'
     | '/drafts/$draftId'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/foo'
-    | '/drafts/new'
-    | '/drafts/$draftId/players'
-    | '/drafts/$draftId'
+  to: '/' | '/drafts/new' | '/drafts/$draftId/players' | '/drafts/$draftId'
   id:
     | '__root__'
     | '/'
-    | '/foo'
     | '/drafts/new'
     | '/drafts/$draftId/players'
     | '/drafts/$draftId/'
@@ -150,7 +126,6 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  FooLazyRoute: typeof FooLazyRoute
   DraftsNewRoute: typeof DraftsNewRoute
   DraftsDraftIdPlayersRoute: typeof DraftsDraftIdPlayersRoute
   DraftsDraftIdIndexRoute: typeof DraftsDraftIdIndexRoute
@@ -158,7 +133,6 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  FooLazyRoute: FooLazyRoute,
   DraftsNewRoute: DraftsNewRoute,
   DraftsDraftIdPlayersRoute: DraftsDraftIdPlayersRoute,
   DraftsDraftIdIndexRoute: DraftsDraftIdIndexRoute,
@@ -175,7 +149,6 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/foo",
         "/drafts/new",
         "/drafts/$draftId/players",
         "/drafts/$draftId/"
@@ -183,9 +156,6 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.lazy.tsx"
-    },
-    "/foo": {
-      "filePath": "foo.lazy.tsx"
     },
     "/drafts/new": {
       "filePath": "drafts/new.tsx"
