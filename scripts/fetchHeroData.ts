@@ -7,7 +7,8 @@ import * as https from "https" // HTTPS module for downloading images
 const API_URL = "https://assets.deadlock-api.com/v2/heroes"
 
 // Folder to store data and images
-const OUTPUT_FOLDER = "./src/assets/heroes/"
+const IMAGE_FOLDER = "./public/assets/heroes/"
+const HERO_DATA_PATH = "./src/assets/heroes.json"
 
 // Fetch heroes data from the API
 async function fetchHeroes() {
@@ -47,7 +48,7 @@ async function fetchHeroes() {
 // Save simplified data as JSON
 async function saveDataAsJson(data: any) {
     try {
-        const jsonPath = path.join(OUTPUT_FOLDER, "heroes.json")
+        const jsonPath = HERO_DATA_PATH
         fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2))
         console.log(`Heroes data saved to ${jsonPath}`)
     } catch (error) {
@@ -63,7 +64,7 @@ async function downloadHeroImages(heroes: any[]) {
                 continue
             }
             const filePath = path.join(
-                OUTPUT_FOLDER,
+                IMAGE_FOLDER,
                 getFileName(hero.id, hero._sourceImageUrl) || ""
             )
 
