@@ -18,6 +18,9 @@ type FormData = {
   // timezone: string
 }
 
+import { customAlphabet } from 'nanoid'
+const nanoid = customAlphabet('1234567890abcdef', 10)
+
 export function CreateDraftForm() {
   const { control, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     defaultValues: {
@@ -33,6 +36,7 @@ export function CreateDraftForm() {
     console.log(data)
     supabase.from('drafts').insert([
       {
+        id: nanoid(),
         name: data.name,
         description: data.description,
         // date: data.date,
