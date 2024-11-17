@@ -1,4 +1,4 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute, Link } from '@tanstack/react-router'
 import { HeroSelection } from '../components/heroes/HeroSelection'
 
 export const Route = createLazyFileRoute('/')({
@@ -8,6 +8,9 @@ export const Route = createLazyFileRoute('/')({
 function Index() {
     return (
         <div className="p-2">
+            <Link to="/drafts/new">
+                new Draft
+            </Link>
             <HeroSelection />
         </div>
     )

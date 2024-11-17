@@ -13,6 +13,9 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as DraftsNewImport } from './routes/drafts/new'
+import { Route as DraftsDraftIdIndexImport } from './routes/drafts/$draftId/index'
+import { Route as DraftsDraftIdPlayersImport } from './routes/drafts/$draftId/players'
 
 // Create Virtual Routes
 
@@ -33,6 +36,24 @@ const IndexLazyRoute = IndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
+const DraftsNewRoute = DraftsNewImport.update({
+  id: '/drafts/new',
+  path: '/drafts/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DraftsDraftIdIndexRoute = DraftsDraftIdIndexImport.update({
+  id: '/drafts/$draftId/',
+  path: '/drafts/$draftId/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DraftsDraftIdPlayersRoute = DraftsDraftIdPlayersImport.update({
+  id: '/drafts/$draftId/players',
+  path: '/drafts/$draftId/players',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -51,6 +72,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FooLazyImport
       parentRoute: typeof rootRoute
     }
+    '/drafts/new': {
+      id: '/drafts/new'
+      path: '/drafts/new'
+      fullPath: '/drafts/new'
+      preLoaderRoute: typeof DraftsNewImport
+      parentRoute: typeof rootRoute
+    }
+    '/drafts/$draftId/players': {
+      id: '/drafts/$draftId/players'
+      path: '/drafts/$draftId/players'
+      fullPath: '/drafts/$draftId/players'
+      preLoaderRoute: typeof DraftsDraftIdPlayersImport
+      parentRoute: typeof rootRoute
+    }
+    '/drafts/$draftId/': {
+      id: '/drafts/$draftId/'
+      path: '/drafts/$draftId'
+      fullPath: '/drafts/$draftId'
+      preLoaderRoute: typeof DraftsDraftIdIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -59,36 +101,67 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/foo': typeof FooLazyRoute
+  '/drafts/new': typeof DraftsNewRoute
+  '/drafts/$draftId/players': typeof DraftsDraftIdPlayersRoute
+  '/drafts/$draftId': typeof DraftsDraftIdIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/foo': typeof FooLazyRoute
+  '/drafts/new': typeof DraftsNewRoute
+  '/drafts/$draftId/players': typeof DraftsDraftIdPlayersRoute
+  '/drafts/$draftId': typeof DraftsDraftIdIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
   '/foo': typeof FooLazyRoute
+  '/drafts/new': typeof DraftsNewRoute
+  '/drafts/$draftId/players': typeof DraftsDraftIdPlayersRoute
+  '/drafts/$draftId/': typeof DraftsDraftIdIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/foo'
+  fullPaths:
+    | '/'
+    | '/foo'
+    | '/drafts/new'
+    | '/drafts/$draftId/players'
+    | '/drafts/$draftId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/foo'
-  id: '__root__' | '/' | '/foo'
+  to:
+    | '/'
+    | '/foo'
+    | '/drafts/new'
+    | '/drafts/$draftId/players'
+    | '/drafts/$draftId'
+  id:
+    | '__root__'
+    | '/'
+    | '/foo'
+    | '/drafts/new'
+    | '/drafts/$draftId/players'
+    | '/drafts/$draftId/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   FooLazyRoute: typeof FooLazyRoute
+  DraftsNewRoute: typeof DraftsNewRoute
+  DraftsDraftIdPlayersRoute: typeof DraftsDraftIdPlayersRoute
+  DraftsDraftIdIndexRoute: typeof DraftsDraftIdIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   FooLazyRoute: FooLazyRoute,
+  DraftsNewRoute: DraftsNewRoute,
+  DraftsDraftIdPlayersRoute: DraftsDraftIdPlayersRoute,
+  DraftsDraftIdIndexRoute: DraftsDraftIdIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -102,7 +175,10 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/foo"
+        "/foo",
+        "/drafts/new",
+        "/drafts/$draftId/players",
+        "/drafts/$draftId/"
       ]
     },
     "/": {
@@ -110,6 +186,15 @@ export const routeTree = rootRoute
     },
     "/foo": {
       "filePath": "foo.lazy.tsx"
+    },
+    "/drafts/new": {
+      "filePath": "drafts/new.tsx"
+    },
+    "/drafts/$draftId/players": {
+      "filePath": "drafts/$draftId/players.tsx"
+    },
+    "/drafts/$draftId/": {
+      "filePath": "drafts/$draftId/index.tsx"
     }
   }
 }
