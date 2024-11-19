@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "fetch-heroes": "npx tsx scripts/fetchHeroData.ts"
+    "fetch-heroes": "npx tsx scripts/fetchHeroData.ts",
+    "fetch-ranks": "npx tsx scripts/fetchRanks.ts"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.1",

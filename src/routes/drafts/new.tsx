@@ -7,7 +7,7 @@ export const Route = createFileRoute('/drafts/new')({
 
 function CreateDraft() {
   return (
-    <div className="p-5">
+    <div className="container mx-auto p-5">
       <CreateDraftForm />
     </div>
   )

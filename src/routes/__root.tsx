@@ -1,7 +1,7 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { Button } from '../components/ui/button'
-import LogoutButton from '../components/auth/LogoutButton'
+import LogoutButton from '../components/auth/logout-button'
 
 export const Route = createRootRoute({
     component: () => (

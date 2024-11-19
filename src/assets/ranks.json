@@ -1,0 +1,74 @@
+[
+  {
+    "tier": 0,
+    "name": "Obscurus",
+    "imageUrl": "/assets/ranks/obscurus.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank0/badge_lg.png"
+  },
+  {
+    "tier": 1,
+    "name": "Initiate",
+    "imageUrl": "/assets/ranks/initiate.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank1/badge_lg.png"
+  },
+  {
+    "tier": 2,
+    "name": "Seeker",
+    "imageUrl": "/assets/ranks/seeker.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank2/badge_lg.png"
+  },
+  {
+    "tier": 3,
+    "name": "Alchemist",
+    "imageUrl": "/assets/ranks/alchemist.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank3/badge_lg.png"
+  },
+  {
+    "tier": 4,
+    "name": "Arcanist",
+    "imageUrl": "/assets/ranks/arcanist.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank4/badge_lg.png"
+  },
+  {
+    "tier": 5,
+    "name": "Ritualist",
+    "imageUrl": "/assets/ranks/ritualist.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank5/badge_lg.png"
+  },
+  {
+    "tier": 6,
+    "name": "Emissary",
+    "imageUrl": "/assets/ranks/emissary.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank6/badge_lg.png"
+  },
+  {
+    "tier": 7,
+    "name": "Archon",
+    "imageUrl": "/assets/ranks/archon.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank7/badge_lg.png"
+  },
+  {
+    "tier": 8,
+    "name": "Oracle",
+    "imageUrl": "/assets/ranks/oracle.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank8/badge_lg.png"
+  },
+  {
+    "tier": 9,
+    "name": "Phantom",
+    "imageUrl": "/assets/ranks/phantom.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank9/badge_lg.png"
+  },
+  {
+    "tier": 10,
+    "name": "Ascendant",
+    "imageUrl": "/assets/ranks/ascendant.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank10/badge_lg.png"
+  },
+  {
+    "tier": 11,
+    "name": "Eternus",
+    "imageUrl": "/assets/ranks/eternus.png",
+    "_sourceImageUrl": "https://assets.deadlock-api.com/images/ranks/rank11/badge_lg.png"
+  }
+]
