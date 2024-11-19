@@ -1,15 +1,11 @@
-import { useForm, Controller } from 'react-hook-form'
-import { CalendarIcon, Clock } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
-import { Calendar } from '@/components/ui/calendar'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { supabaseClient } from '../../supabase'
 import { useNavigate } from '@tanstack/react-router'
+import { Controller, useForm } from 'react-hook-form'
+import { supabaseClient } from '../../supabase'
 
 type FormData = {
   name: string
