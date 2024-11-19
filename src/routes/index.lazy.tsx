@@ -14,6 +14,11 @@ function Index() {
                     new Draft
                 </Button>
             </Link>
+            <Link to={"/drafts/$draftId"} params={{ draftId: "255e2a91b2" }}>
+                <Button>
+                    Test Draft
+                </Button>
+            </Link>
             <HeroSelection />
         </div>
     )
