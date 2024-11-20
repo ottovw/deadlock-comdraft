@@ -48,7 +48,7 @@ export const HeroSelectionWidget = ({ }) => {
                         onClick={() => handleLeftClick(hero.id)}
                         onContextMenu={(event) => handleRightClick(event, hero.id)}
                     >
-                        <img src={hero.imageUrl} alt={hero.name} className="block w-[110px] h-[150px]" />
+                        <img src={hero.imageUrl} alt={hero.name} className="hover:scale-125 block w-[110px] h-[150px]" />
                         {hero.name}
                     </li>
                 ))}

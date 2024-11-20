@@ -1,6 +1,7 @@
-import { createFileRoute, Outlet } from '@tanstack/react-router'
+import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 import supabaseClient from '../../../../supabase'
 import { DraftLayout } from '../../../../components/drafts/draft-layout'
+import { Button } from '../../../../components/ui/button'
 
 export const Route = createFileRoute('/drafts/$draftId/_draft-container/')({
   component: RouteComponent,
@@ -22,11 +23,16 @@ function RouteComponent() {
   const draft = Route.useLoaderData()
 
   return (
-    <div>
-      Draft id {draft.id}
-      <h1>{draft.name}</h1>
-      <p>{draft.description}</p>
+    <div className="container mx-auto p-5 flex flex-col gap-5">
+      <div className="flex flex-row items-center">
+        Draft id {draft.id}
+        <h1>{draft.name}</h1>
+        <p>{draft.description}</p>
+        <Link to={'/drafts/$draftId/join'} params={{ draftId: draft.id }}>
+          <Button>Join Draft</Button>
+        </Link>
+      </div>
       <DraftLayout />
-    </div>
+    </div >
   )
 }

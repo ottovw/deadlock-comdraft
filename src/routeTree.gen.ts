@@ -18,6 +18,7 @@ import { Route as DraftsNewImport } from './routes/drafts/new'
 import { Route as DraftsDraftIdDraftContainerImport } from './routes/drafts/$draftId/_draft-container'
 import { Route as DraftsDraftIdDraftContainerIndexImport } from './routes/drafts/$draftId/_draft-container/index'
 import { Route as DraftsDraftIdDraftContainerPlayersImport } from './routes/drafts/$draftId/_draft-container/players'
+import { Route as DraftsDraftIdDraftContainerJoinImport } from './routes/drafts/$draftId/_draft-container/join'
 
 // Create Virtual Routes
 
@@ -70,6 +71,13 @@ const DraftsDraftIdDraftContainerPlayersRoute =
     getParentRoute: () => DraftsDraftIdDraftContainerRoute,
   } as any)
 
+const DraftsDraftIdDraftContainerJoinRoute =
+  DraftsDraftIdDraftContainerJoinImport.update({
+    id: '/join',
+    path: '/join',
+    getParentRoute: () => DraftsDraftIdDraftContainerRoute,
+  } as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -109,6 +117,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DraftsDraftIdDraftContainerImport
       parentRoute: typeof DraftsDraftIdRoute
     }
+    '/drafts/$draftId/_draft-container/join': {
+      id: '/drafts/$draftId/_draft-container/join'
+      path: '/join'
+      fullPath: '/drafts/$draftId/join'
+      preLoaderRoute: typeof DraftsDraftIdDraftContainerJoinImport
+      parentRoute: typeof DraftsDraftIdDraftContainerImport
+    }
     '/drafts/$draftId/_draft-container/players': {
       id: '/drafts/$draftId/_draft-container/players'
       path: '/players'
@@ -129,12 +144,14 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface DraftsDraftIdDraftContainerRouteChildren {
+  DraftsDraftIdDraftContainerJoinRoute: typeof DraftsDraftIdDraftContainerJoinRoute
   DraftsDraftIdDraftContainerPlayersRoute: typeof DraftsDraftIdDraftContainerPlayersRoute
   DraftsDraftIdDraftContainerIndexRoute: typeof DraftsDraftIdDraftContainerIndexRoute
 }
 
 const DraftsDraftIdDraftContainerRouteChildren: DraftsDraftIdDraftContainerRouteChildren =
   {
+    DraftsDraftIdDraftContainerJoinRoute: DraftsDraftIdDraftContainerJoinRoute,
     DraftsDraftIdDraftContainerPlayersRoute:
       DraftsDraftIdDraftContainerPlayersRoute,
     DraftsDraftIdDraftContainerIndexRoute:
@@ -164,6 +181,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/drafts/new': typeof DraftsNewRoute
   '/drafts/$draftId': typeof DraftsDraftIdDraftContainerRouteWithChildren
+  '/drafts/$draftId/join': typeof DraftsDraftIdDraftContainerJoinRoute
   '/drafts/$draftId/players': typeof DraftsDraftIdDraftContainerPlayersRoute
   '/drafts/$draftId/': typeof DraftsDraftIdDraftContainerIndexRoute
 }
@@ -173,6 +191,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/drafts/new': typeof DraftsNewRoute
   '/drafts/$draftId': typeof DraftsDraftIdDraftContainerIndexRoute
+  '/drafts/$draftId/join': typeof DraftsDraftIdDraftContainerJoinRoute
   '/drafts/$draftId/players': typeof DraftsDraftIdDraftContainerPlayersRoute
 }
 
@@ -183,6 +202,7 @@ export interface FileRoutesById {
   '/drafts/new': typeof DraftsNewRoute
   '/drafts/$draftId': typeof DraftsDraftIdRouteWithChildren
   '/drafts/$draftId/_draft-container': typeof DraftsDraftIdDraftContainerRouteWithChildren
+  '/drafts/$draftId/_draft-container/join': typeof DraftsDraftIdDraftContainerJoinRoute
   '/drafts/$draftId/_draft-container/players': typeof DraftsDraftIdDraftContainerPlayersRoute
   '/drafts/$draftId/_draft-container/': typeof DraftsDraftIdDraftContainerIndexRoute
 }
@@ -194,6 +214,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/drafts/new'
     | '/drafts/$draftId'
+    | '/drafts/$draftId/join'
     | '/drafts/$draftId/players'
     | '/drafts/$draftId/'
   fileRoutesByTo: FileRoutesByTo
@@ -202,6 +223,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/drafts/new'
     | '/drafts/$draftId'
+    | '/drafts/$draftId/join'
     | '/drafts/$draftId/players'
   id:
     | '__root__'
@@ -210,6 +232,7 @@ export interface FileRouteTypes {
     | '/drafts/new'
     | '/drafts/$draftId'
     | '/drafts/$draftId/_draft-container'
+    | '/drafts/$draftId/_draft-container/join'
     | '/drafts/$draftId/_draft-container/players'
     | '/drafts/$draftId/_draft-container/'
   fileRoutesById: FileRoutesById
@@ -264,9 +287,14 @@ export const routeTree = rootRoute
       "filePath": "drafts/$draftId/_draft-container.tsx",
       "parent": "/drafts/$draftId",
       "children": [
+        "/drafts/$draftId/_draft-container/join",
         "/drafts/$draftId/_draft-container/players",
         "/drafts/$draftId/_draft-container/"
       ]
+    },
+    "/drafts/$draftId/_draft-container/join": {
+      "filePath": "drafts/$draftId/_draft-container/join.tsx",
+      "parent": "/drafts/$draftId/_draft-container"
     },
     "/drafts/$draftId/_draft-container/players": {
       "filePath": "drafts/$draftId/_draft-container/players.tsx",
