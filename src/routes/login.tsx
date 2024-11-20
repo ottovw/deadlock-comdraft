@@ -1,13 +1,13 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
-import SupabaseLogin, { supabaseClient } from '../supabase'
+import { Button } from '../components/ui/button'
+import { login, supabaseClient } from '../supabase'
 
 export const Route = createFileRoute('/login')({
   component: RouteComponent,
-
 })
 
 function RouteComponent() {
-  const params = Route.useSearch()
+  const params = Route.useSearch() as unknown as { access_token: string, refresh_token: string }
 
   console.log("accessToken", params)
 
@@ -17,5 +17,7 @@ function RouteComponent() {
   }
 
 
-  return <SupabaseLogin />
+  return <div>
+    <Button onClick={() => login()}>Login</Button>
+  </div>
 }

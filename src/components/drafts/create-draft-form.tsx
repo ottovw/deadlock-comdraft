@@ -43,6 +43,9 @@ export function CreateDraftForm() {
         // timezone: data.timezone,
       }
     ])
+    if (result) {
+      console.log('Draft created successfully');
+    }
     navigate({ to: `/drafts/${id}` });
     reset()
   }

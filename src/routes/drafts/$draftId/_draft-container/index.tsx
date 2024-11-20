@@ -1,7 +1,7 @@
-import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
-import supabaseClient from '../../../../supabase'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { DraftLayout } from '../../../../components/drafts/draft-layout'
 import { Button } from '../../../../components/ui/button'
+import supabaseClient from '../../../../supabase'
 
 export const Route = createFileRoute('/drafts/$draftId/_draft-container/')({
   component: RouteComponent,

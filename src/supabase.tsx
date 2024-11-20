@@ -3,7 +3,6 @@ import { createClient, Session } from '@supabase/supabase-js'
 
 export const supabaseClient = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLIC_API_KEY)
 
-
 export interface SessionContextProps {
   session: Session | null;
   setSession: (session: Session | null) => void;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHeroData, Hero } from './deadlock-data';
+import { useHeroData } from './deadlock-data';
 
 const priorities = ['selected', 'priority', 'high-prio'] as const;
 
