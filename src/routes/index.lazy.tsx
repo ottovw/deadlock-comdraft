@@ -1,6 +1,7 @@
 import { createLazyFileRoute, Link } from '@tanstack/react-router'
-import { HeroSelection } from '../components/heroes/HeroSelection'
+import { HeroSelectionWidget } from '../components/deadlock/hero-selection'
 import { Button } from '../components/ui/button'
+import { RankSelectionWidget } from '../components/deadlock/rank-selection'
 
 export const Route = createLazyFileRoute('/')({
     component: Index,
@@ -8,7 +9,7 @@ export const Route = createLazyFileRoute('/')({
 
 function Index() {
     return (
-        <div className="p-2">
+        <div className="container mx-auto p-2">
             <Link to="/drafts/new">
                 <Button>
                     new Draft
@@ -19,7 +20,8 @@ function Index() {
                     Test Draft
                 </Button>
             </Link>
-            <HeroSelection />
+            <HeroSelectionWidget />
+            <RankSelectionWidget />
         </div>
     )
 }

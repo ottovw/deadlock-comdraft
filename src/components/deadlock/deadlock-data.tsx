@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import rawHeroData from '../../assets/heroes.json'
+import rawRankData from '../../assets/ranks.json'
 
 export type Hero = {
     id: string,
@@ -25,4 +26,22 @@ export const useHeroData = (includeExperimental = true) => {
         setHereos(getHeroData(includeExperimental))
     }, [includeExperimental]);
     return heroes
+}
+
+export type Rank = {
+    tier: string,
+    name: string,
+    imageUrl: string,
+}
+
+const rankData: Rank[] = rawRankData.map(
+    rank => {
+        rank.imageUrl = basePath + rank.imageUrl
+        return rank
+    }
+).sort((a, b) => a.tier - b.tier) as unknown as Rank[]
+
+export const useRankData = () => {
+    const [ranks] = useState<Rank[]>(rankData)
+    return ranks
 }

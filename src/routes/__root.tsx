@@ -7,7 +7,7 @@ export const Route = createRootRoute({
     component: () => (
         <>
             <div>
-                <div className="container mx-auto flex flex-row gap-5 p-5 items-start">
+                <div className="container mx-auto flex flex-row gap-5 p-5 items-center justify-center">
                     <Link to="/">
                         <h1 className='text-xl font-bold'>
                             Deadlock Comdraft
