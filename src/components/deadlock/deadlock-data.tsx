@@ -9,7 +9,9 @@ export type Hero = {
     experimental: boolean
 }
 
-const basePath = import.meta.env.BASE_URL
+//const basePath = import.meta.env.BASE_URL
+const basePath = ""
+
 
 const heroData: Hero[] = rawHeroData.map(hero => {
     hero.imageUrl = basePath + hero.imageUrl
